@@ -1,0 +1,11 @@
+<table>
+	<tr>
+			<td><%= image_tag(@imagem.avatar.url) %></td>
+	</tr>
+		<tr>
+			<td align="right"><%=h @imagem.nome %></td>
+	</tr>
+</table>
+</br>
+<%= link_to 'Edit', edit_admin_imagem_path(@imagem) %> |
+<%= link_to 'Back', admin_imagems_path %>

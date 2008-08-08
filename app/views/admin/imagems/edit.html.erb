@@ -1,0 +1,16 @@
+<h1>Editing imagem</h1>
+
+<% form_for([:admin, @imagem]) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :nome %><br />
+    <%= f.text_field :nome %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', [:admin,@imagem] %> |
+<%= link_to 'Back', admin_imagems_path %>

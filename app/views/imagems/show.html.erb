@@ -1,0 +1,10 @@
+<table>
+	<tr>
+			<td><%= image_tag(@imagem.avatar.url) %></td>
+	</tr>
+		<tr>
+			<td align="right"><%=h @imagem.nome %></td>
+	</tr>
+</table>
+</br>
+<%= link_to 'Back', imagems_path %>

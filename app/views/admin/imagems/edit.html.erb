@@ -1,8 +1,12 @@
 <h1>Editing imagem</h1>
 
-<% form_for([:admin, @imagem]) do |f| %>
+<% form_for([@evento, @imagem]) do |f| %>
   <%= f.error_messages %>
 
+  <p>
+    <%= f.label :evento %><br />
+    <%= f.label @evento.titulo %>
+  </p>
   <p>
     <%= f.label :nome %><br />
     <%= f.text_field :nome %>
@@ -12,5 +16,5 @@
   </p>
 <% end %>
 
-<%= link_to 'Show', [:admin,@imagem] %> |
-<%= link_to 'Back', admin_imagems_path %>
+<%= link_to 'Show', @imagem %> |
+<%= link_to 'Back', imagems_path %>

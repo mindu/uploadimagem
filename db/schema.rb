@@ -9,7 +9,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080806154957) do
+ActiveRecord::Schema.define(:version => 20080813012205) do
+
+  create_table "eventos", :force => true do |t|
+    t.string   "titulo"
+    t.date     "data"
+    t.text     "descricao"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "imagems", :force => true do |t|
     t.string   "nome"
@@ -18,6 +26,7 @@ ActiveRecord::Schema.define(:version => 20080806154957) do
     t.string   "avatar_file_size"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "evento_id",           :limit => 11
   end
 
 end

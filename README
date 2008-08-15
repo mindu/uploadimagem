@@ -1,3 +1,5 @@
 == Upload de Imagem
 
 Exemplo simples de upload de imagem com rails
+- Paginação de imagens
+- Área administrativa para gerenciamento de eventos e imagens

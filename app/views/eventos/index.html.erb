@@ -2,17 +2,15 @@
 
 <table border="0">
   <tr>
+    <th>Data</th>  	
     <th>Titulo</th>
-    <th>Data</th>
-    <th>Descricao</th>
-    <th>Opções</th>
+    <td>&nbsp;</td>
   </tr>
 
 <% for evento in @eventos %>
   <tr>
+		<td><%=h evento.data.strftime("%d/%m/%Y") %></td>  	
     <td><%=h evento.titulo %></td>
-    <td><%=h evento.data %></td>
-    <td><%=h evento.descricao %></td>
     <td><%= link_to 'Show', evento %></td>
   </tr>
 <% end %>

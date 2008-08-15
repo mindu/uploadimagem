@@ -13,6 +13,12 @@ class EventosController < ApplicationController
   # GET /eventos/1.xml
   def show
     @evento = Evento.find(params[:id])
+    @imagems = @evento.imagems.paginate :page => params[:page], :per_page => 2
+    if params[:page] then
+    	session[:page] = params[:page]
+    else
+    	session[:page] = 1
+  	end
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @evento }

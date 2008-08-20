@@ -6,6 +6,7 @@ class CreateImagems < ActiveRecord::Migration
       t.string :avatar_content_type    
       t.string :avatar_file_size 
       t.timestamps
+      t.references :evento
     end
   end
 

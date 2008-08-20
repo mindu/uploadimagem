@@ -1,0 +1,21 @@
+<table border="0">
+  <tr>
+    <th>Data</th>  	
+    <th>Titulo</th>
+    <th>Descrição</th>
+  </tr>
+  <tr>
+    <td><%=h @evento.data %></td>  	
+    <td><%=h @evento.titulo %></td>
+    <td><%=h @evento.descricao %></td>
+  </tr>  
+  <tr>
+    <td colspan="3">
+		<% for imagem in @imagems %>
+				<%= link_to image_tag(imagem.avatar.url(:thumb)), [@evento, imagem] %>
+		<% end %>
+		<%= will_paginate @imagems %>    	
+    </td>  	
+  </tr>  
+</table>
+<%= link_to 'Back', eventos_path %>

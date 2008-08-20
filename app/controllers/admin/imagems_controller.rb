@@ -1,12 +1,12 @@
 class Admin::ImagemsController < ApplicationController
-	  before_filter :authenticate
+	before_filter :authenticate, :load_evento
   def authenticate
     authenticate_or_request_with_http_basic do |name, pass|
       name == 'demo' && pass == 'demo'      
     end
   end
   def index
-    @imagems = Imagem.find(:all)
+    @imagems = @evento.imagems.find(:all)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -28,7 +28,7 @@ class Admin::ImagemsController < ApplicationController
 	  # GET /imagems/new
   # GET /imagems/new.xml
   def new
-    @imagem = Imagem.new
+    @imagem = @evento.imagems.build
 
     respond_to do |format|
       format.html # new.html.erb
@@ -38,18 +38,18 @@ class Admin::ImagemsController < ApplicationController
 
   # GET /imagems/1/edit
   def edit
-    @imagem = Imagem.find(params[:id])
+   @imagem =@evento.imagems.find(params[:id])
   end
 
   # POST /imagems
   # POST /imagems.xml
   def create
-    @imagem = Imagem.new(params[:imagem])
+     @imagem =@evento.imagems.build(params[:imagem])
 
     respond_to do |format|
       if @imagem.save
         flash[:notice] = 'Imagem was successfully created.'
-        format.html { redirect_to([:admin,@imagem]) }
+        format.html { redirect_to([:admin,@evento, @imagem]) }
         format.xml  { render :xml => @imagem, :status => :created, :location => @imagem }
       else
         format.html { render :action => "new" }
@@ -78,12 +78,15 @@ class Admin::ImagemsController < ApplicationController
   # DELETE /imagems/1
   # DELETE /imagems/1.xml
   def destroy
-    @imagem = Imagem.find(params[:id])
+    @imagem = @evento.imagems.find(params[:id])
     @imagem.destroy
 
     respond_to do |format|
-      format.html { redirect_to(admin_imagems_url) }
+      format.html { redirect_to(admin_evento_imagems_url) }
       format.xml  { head :ok }
     end
   end	
+  def load_evento
+  	@evento = Evento.find(params[:evento_id])
+  end  
 end

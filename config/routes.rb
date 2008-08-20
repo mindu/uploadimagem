@@ -1,7 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :imagems
+  map.resources :eventos, :has_many => :imagems
 	map.namespace :admin do |admin|
 	  admin.resources :imagems
+	  admin.resources :eventos, :has_many => :imagems
 	end
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -12,4 +12,11 @@ class ImagemsController < ApplicationController
   def load_evento
   	@evento = Evento.find(params[:evento_id])
   end   
+  def rate
+    @imagem = @evento.imagems.find(params[:id])
+    @imagem.add_rating Rating.new(:rating => params[:rating])
+    #respond_to do |format|
+		#	format.html { render(:partial => 'imagems/rating', :layout => false, :object => @imagem) }
+		#end
+	end    
 end

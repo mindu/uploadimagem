@@ -45,6 +45,7 @@ class Admin::ImagemsController < ApplicationController
   # POST /imagems.xml
   def create
      @imagem =@evento.imagems.build(params[:imagem])
+     @imagem.tag_with(params[:tag_list])
 
     respond_to do |format|
       if @imagem.save

@@ -2,6 +2,7 @@ class EventosController < ApplicationController
   # GET /eventos
   # GET /eventos.xml
   def index
+  	@tags = Tag.tags(:limit => 100, :order => "name desc")
     @eventos = Evento.find(:all)
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +14,7 @@ class EventosController < ApplicationController
   # GET /eventos/1.xml
   def show
     @evento = Evento.find(params[:id])
-    @imagems = @evento.imagems.paginate :page => params[:page], :per_page => 2
+    @imagems = @evento.imagems.paginate :page => params[:page], :per_page => 5
     if params[:page] then
     	session[:page] = params[:page]
     else

@@ -1,5 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :imagems
+  map.resources :tags
   map.resources :eventos, :has_many => :imagems
 	map.namespace :admin do |admin|
 	  admin.resources :imagems

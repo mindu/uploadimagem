@@ -1,0 +1,23 @@
+<h1>Listing Imagems by Tag: <%=@tag %> </h1>
+<table>
+	<% for imagem in @imagems %>
+	  <tr>
+			<td><%= link_to image_tag(imagem.avatar.url(:thumb)), {:action => :show, :id => imagem, :tag => @tag, :page => params[:page]} %></td>
+	    <td><%=h imagem.nome %></td>
+	  </tr>
+	  <tr>
+			<td colspan="2"><%= link_to imagem.evento.titulo, imagem.evento %></td>
+	  </tr>	  
+	<% end %>
+</table>
+<%= will_paginate @imagems %>
+<br />
+Tag Cloud:
+<br />
+<% tag_cloud @tags, %w(nube1 nube2 nube3 nube4 nube5) do |name, css_class| %>
+  <%= link_to name, {:controller => 'tags', :id => name},
+    :class => css_class %>
+<% end %>
+<br />
+<br />
+<%= link_to 'Back', eventos_path %>

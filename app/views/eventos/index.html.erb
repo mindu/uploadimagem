@@ -15,5 +15,11 @@
   </tr>
 <% end %>
 </table>
-
+<br />
+Tag Cloud:
+<br />
+<% tag_cloud @tags, %w(nube1 nube2 nube3 nube4 nube5) do |name, css_class| %>
+  <%= link_to name, {:controller => 'tags', :id => name},
+    :class => css_class %>
+<% end %>
 <br />

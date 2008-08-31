@@ -4,6 +4,7 @@ Exemplo simples de upload de imagem com rails
 - Area administrativa para gerenciamento de Eventos e Imagens
 - Paginacao de imagens
 - Star rating para as imagens
+- Tags (Tag Cloud) para as imagens
 
 Gems:
 - paperclip
@@ -11,5 +12,5 @@ Gems:
 Plugins:
 - attachament_fu
 - will_paginate
-- acts_asrateable
+- acts_as_rateable
 - acts_as_taggable (http://svn.rubyonrails.org/rails/plugins/legacy/acts_as_taggable)

@@ -6,11 +6,8 @@ Exemplo simples de upload de imagem com rails
 - Star rating para as imagens
 - Tags (Tag Cloud) para as imagens
 
-Gems:
-- paperclip
-
 Plugins:
-- attachament_fu
+- paperclip
 - will_paginate
 - acts_as_rateable
 - acts_as_taggable (http://svn.rubyonrails.org/rails/plugins/legacy/acts_as_taggable)
